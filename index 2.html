@@ -102,12 +102,11 @@
 			// cost of the things in their cart, add that to the
 			// totalMoneyMade, update our inventory,
 			// and empty that customer's cart
-		return getSubTotalForCustomer();
 		var madeMoney = getSubTotalForCustomer();
 		totalMoneyMade += madeMoney;
 		getSubTotalForCustomer = 0;
+		return getSubTotalForCustomer();
 		}
-
 
 		function createNewCustomer(name) {//maybe add another function for this?
 			// todo: add a new customer to the system
@@ -117,10 +116,9 @@
 			name: name,
 			cart: [],
 			}
-			customers.push(newCustomer);
+			return customers.push(newCustomer);
 		}
-		
-		console.log(createNewCustomer("billy"));
+		createNewCustomer("billy");
 
 		function createNewItem(name, price, id) {
 			// todo: add a new item to the system with
@@ -131,9 +129,11 @@
 				price: price,
 				id: id,
 			}
-			inventory.push(newItem);
+			return inventory.push(newItem);
 		}
 		createNewItem("cattle prod", 733, 12424);
+
+		console.log(customers);
 		console.log(inventory);
 
 	</script>
